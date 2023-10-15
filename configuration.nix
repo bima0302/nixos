@@ -13,7 +13,6 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   networking.hostName = "book"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -30,18 +29,6 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "id_ID.UTF-8";
-    LC_IDENTIFICATION = "id_ID.UTF-8";
-    LC_MEASUREMENT = "id_ID.UTF-8";
-    LC_MONETARY = "id_ID.UTF-8";
-    LC_NAME = "id_ID.UTF-8";
-    LC_NUMERIC = "id_ID.UTF-8";
-    LC_PAPER = "id_ID.UTF-8";
-    LC_TELEPHONE = "id_ID.UTF-8";
-    LC_TIME = "id_ID.UTF-8";
-  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -69,7 +56,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-
     #jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
@@ -87,16 +73,17 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       # Apps
+      neofetch
       firefox
       google-chrome
       vscode
       docker
       spotify
-      warp
-
       # Programming languages
       nodejs_18
       python312
+      dart
+      flutter
       yarn
     ];
   };
@@ -108,13 +95,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     wget
-     neofetch
-     git
-     
-     # GNOME extensions
-     gnomeExtensions.pano
-     gnomeExtensions.thinkpad-battery-threshold
+  #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -128,7 +109,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -142,7 +123,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "23.05"; # Did you read the comment?
   
   # Enable flatpak
   services.flatpak.enable = true;
@@ -191,14 +172,5 @@
       symbola
       ubuntu_font_family
     ];
-    
-    # set Ubuntu Font as default system
-    # fontconfig = {
-    #   defaultFonts = {
-    #     serif = [ "Ubuntu" ];
-    #     sansSerif = [ "Ubuntu" ];
-    #     monospace = [ "Ubuntu" ];
-    #   };
-    # };
   };
 }
