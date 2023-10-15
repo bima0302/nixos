@@ -79,6 +79,7 @@
       vscode
       docker
       spotify
+      obs-studio
       # Programming languages
       nodejs_18
       python312
