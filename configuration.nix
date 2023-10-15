@@ -93,6 +93,7 @@
       spotify
       obs-studio
       # Programming languages
+      git
       nodejs_18
       python312
       dart
@@ -136,7 +137,8 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  # system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "unstable"; # Did you read the comment?
   
   # Enable flatpak
   services.flatpak.enable = true;
@@ -159,11 +161,11 @@
   # Enable ZRAM
   zramSwap.enable = true;
   zramSwap.memoryPercent = 50;
-
+    
   # Fonts
   fonts = {
-    enableDefaultFonts = false;
-    fonts = with pkgs; [
+    enableDefaultPackages = false;
+    packages = with pkgs; [
       crimson
       corefonts # Microsoft free fonts
       dejavu_fonts
