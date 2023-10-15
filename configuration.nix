@@ -90,17 +90,13 @@
       firefox
       google-chrome
       vscode
+      docker
       spotify
-      discord
-      bitwarden
-      libreoffice
-      inkscape
-      gimp
-      vlc
-      gnome.gnome-tweaks
+      warp
+
       # Programming languages
       nodejs_18
-      python311
+      python312
       yarn
     ];
   };
